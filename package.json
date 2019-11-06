@@ -2,12 +2,10 @@
   "name": "react-pdf",
   "version": "1.0.0",
   "description": "Display PDFs in your React app using PDF.js",
-  "author": "",
+  "author": "Alexis Dardinier <alexis.dardinier@gmail.com>",
   "license": "MIT",
-  "repository": "/react-pdf",
+  "repository": "git@github.com:dardinier/react-pdf.git",
   "main": "dist/index.js",
-  "module": "dist/index.es.js",
-  "jsnext:main": "dist/index.es.js",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
