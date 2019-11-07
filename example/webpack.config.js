@@ -1,11 +1,14 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+const package_json = require('./package.json');
 
 module.exports = {
   entry: {
-    'react-pdf': './src/index.jsx',
+    'index': './src/index.jsx',
   },
   output: {
-    path: path.join(__dirname, 'dist'),
+    path: path.join(__dirname, 'build'),
     filename: '[name].js'
   },
   resolve: {
@@ -21,5 +24,9 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [new HtmlWebpackPlugin({
+    title: package_json.name,
+    template: 'public/index.html'
+  })]
 };

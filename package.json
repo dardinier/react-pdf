@@ -1,41 +1,46 @@
 {
-  "name": "react-pdf",
-  "version": "1.0.0",
-  "description": "Display PDFs in your React app using PDF.js",
-  "author": "Alexis Dardinier <alexis.dardinier@gmail.com>",
-  "license": "MIT",
-  "repository": "git@github.com:dardinier/react-pdf.git",
-  "main": "dist/index.js",
-  "engines": {
-    "node": ">=8",
-    "npm": ">=5"
-  },
-  "scripts": {
-    "test": "cross-env CI=1 react-scripts test --env=jsdom",
-    "test:watch": "react-scripts test --env=jsdom",
-    "build": "yarn run webpack --mode=production",
-    "start": "yarn run webpack --watch --mode=development",
-    "prepare": "yarn run build",
-    "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
-  },
-  "peerDependencies": {
-    "prop-types": "^15.5.4",
-    "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
-  },
-  "devDependencies": {
-    "@babel/core": "^7.7.0",
-    "@babel/preset-env": "^7.7.1",
-    "@babel/preset-react": "^7.7.0",
-    "babel-loader": "^8.0.6",
-    "gh-pages": "^1.2.0",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
-  },
-  "files": [
-    "dist"
-  ]
+    "name": "react-pdf",
+    "version": "1.0.0",
+    "description": "Display PDFs in your React app using PDF.js",
+    "author": "Alexis Dardinier <alexis.dardinier@gmail.com>",
+    "license": "MIT",
+    "repository": "git@github.com:dardinier/react-pdf.git",
+    "main": "dist/react-pdf.js",
+    "engines": {
+        "node": ">=8",
+        "npm": ">=5"
+    },
+    "scripts": {
+        "build": "rollup -c",
+        "start": "rollup -c -w",
+        "prepare": "yarn run build",
+        "predeploy": "cd example && yarn install && yarn run build",
+        "deploy": "gh-pages -d example/build"
+    },
+    "peerDependencies": {
+        "prop-types": "^15.5.4",
+        "react": "^15.0.0 || ^16.0.0",
+        "react-dom": "^15.0.0 || ^16.0.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.7.0",
+        "@babel/core": "^7.7.0",
+        "@babel/preset-env": "^7.7.1",
+        "@babel/preset-react": "^7.7.0",
+        "@svgr/rollup": "^4.3.3",
+        "babel-loader": "^8.0.6",
+        "gh-pages": "^1.2.0",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "rollup": "^1.26.3",
+        "rollup-plugin-babel": "^4.3.3",
+        "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-node-resolve": "^5.2.0",
+        "rollup-plugin-peer-deps-external": "^2.2.0",
+        "rollup-plugin-postcss": "^2.0.3",
+        "rollup-plugin-url": "^3.0.0"
+    },
+    "files": [
+        "dist"
+    ]
 }

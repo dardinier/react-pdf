@@ -1,20 +1,21 @@
 {
-  "name": "react-pdf-example",
-  "homepage": "https://.github.io/react-pdf",
-  "version": "0.0.0",
-  "license": "MIT",
-  "private": true,
-  "dependencies": {
-    "prop-types": "^15.6.2",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
-    "react-scripts": "^1.1.4",
-    "react-pdf": "link:.."
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "name": "react-pdf-example",
+    "homepage": "https://.github.io/react-pdf",
+    "version": "0.0.0",
+    "license": "MIT",
+    "private": true,
+    "dependencies": {
+        "html-webpack-plugin": "^3.2.0",
+        "prop-types": "^15.6.2",
+        "react": "^16.4.1",
+        "react-dom": "^16.4.1",
+        "react-pdf": "link:..",
+        "webpack": "^4.41.2",
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.9.0"
+    },
+    "scripts": {
+        "start": "yarn run webpack-dev-server",
+        "build": "yarn run webpack --mode=production"
+    }
 }
