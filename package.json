@@ -1,7 +1,7 @@
 {
     "name": "react-pdf",
     "version": "1.0.0",
-    "description": "Display PDFs in your React app using PDF.js",
+    "description": "Display PDFs in your React app using PDF.js.",
     "author": "Alexis Dardinier <alexis.dardinier@gmail.com>",
     "license": "MIT",
     "repository": "git@github.com:dardinier/react-pdf.git",
