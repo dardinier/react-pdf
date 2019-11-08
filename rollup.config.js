@@ -1,9 +1,9 @@
 import babel from 'rollup-plugin-babel'
 import commonjs from 'rollup-plugin-commonjs'
 import external from 'rollup-plugin-peer-deps-external'
-import postcss from 'rollup-plugin-postcss'
 import resolve from 'rollup-plugin-node-resolve'
 import url from 'rollup-plugin-url'
+import copy from 'rollup-plugin-copy'
 import svgr from '@svgr/rollup'
 
 import config from './package.json'
@@ -18,9 +18,6 @@ export default {
   ],
   plugins: [
     external(),
-    postcss({
-      modules: true
-    }),
     url(),
     svgr(),
     babel({
@@ -28,7 +25,17 @@ export default {
     }),
     resolve({
       extensions: [ '.js', '.jsx' ],
+      preferBuiltins: true
     }),
-    commonjs()
+    commonjs({
+      namedExports: {
+        'pdfjs-dist/web/pdf_viewer': [ 'PDFViewer' ]
+      }
+    }),
+    copy({
+      targets: [
+        { src: 'src/scss/index.scss', dest: 'dist/', rename: () => 'react-pdf.scss' },
+      ]
+    })
   ]
 }

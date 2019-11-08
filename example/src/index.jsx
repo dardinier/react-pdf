@@ -1,12 +1,54 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import PDF from 'react-pdf'
+import 'react-pdf/dist/react-pdf.scss';
 
-const App = () => (
-  <div>
-    <PDF text="Hello World !" />
-  </div>
-);
+class App extends React.Component {
+  constructor() {
+    super();
+    this.handleClick = this.handleClick.bind(this);
+    this.handleResizePDF = this.handleResizePDF.bind(this);
+    this.handlePDFRender = this.handlePDFRender.bind(this);
+    this.container = React.createRef();
+    this.state = {
+      bool: true,
+      fileName: 'document-1.pdf',
+    }
+  }
+
+  handleClick() {
+    this.setState({ fileName: (this.state.bool) ? 'document-2.pdf' : 'document-1.pdf', bool: !this.state.bool });
+  }
+
+  handleResizePDF() {
+    this.container.current.style.width = Math.floor(Math.random()*100) + 1 + "%";
+  }
+
+  handlePDFRender() {
+    console.log("PDF has been rendered !");
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <button type="button" onClick={this.handleClick}>Changer de fichier</button>
+        <button type="button" onClick={this.handleResizePDF}>Resize PDF container</button>
+        <div ref={this.container} style={{ marginLeft: 'auto', marginRight: 'auto' }}>
+          <PDF
+            url={this.state.fileName}
+            className="Test"
+            poll={true}
+            onPDFRender={this.handlePDFRender}
+            zoomNodesWrapper={children => <div>{children}</div>}
+            zoomInNode={<button>Zoom in</button>}
+            zoomOutNode={<button>Zoom out</button>}
+            zoomResetNode={<button>Reset zoom</button>}
+          />
+        </div>
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(
   <App />,

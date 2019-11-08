@@ -13,14 +13,19 @@
     "scripts": {
         "build": "rollup -c",
         "start": "rollup -c -w",
-        "prepare": "yarn run build",
+        "prepublishOnly": "yarn run build",
         "predeploy": "cd example && yarn install && yarn run build",
         "deploy": "gh-pages -d example/build"
     },
+    "dependencies": {
+        "element-resize-event": "^3.0.3",
+        "lodash.debounce": "^4.0.8",
+        "pdfjs-dist": "https://github.com/emri99/pdfjs-dist.git#allow-digital-signature"
+    },
     "peerDependencies": {
         "prop-types": "^15.5.4",
-        "react": "^15.0.0 || ^16.0.0",
-        "react-dom": "^15.0.0 || ^16.0.0"
+        "react": "^16.0.0",
+        "react-dom": "^16.0.0"
     },
     "devDependencies": {
         "@babel/cli": "^7.7.0",
@@ -35,9 +40,9 @@
         "rollup": "^1.26.3",
         "rollup-plugin-babel": "^4.3.3",
         "rollup-plugin-commonjs": "^10.1.0",
+        "rollup-plugin-copy": "^3.1.0",
         "rollup-plugin-node-resolve": "^5.2.0",
         "rollup-plugin-peer-deps-external": "^2.2.0",
-        "rollup-plugin-postcss": "^2.0.3",
         "rollup-plugin-url": "^3.0.0"
     },
     "files": [
